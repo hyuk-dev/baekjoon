@@ -4,14 +4,21 @@ import java.util.*;
 class Main {
     public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
-      int n = sc.nextInt();
-      int[] num = new int[n];
-      for (int i = 0; i < n; i++){
-        num[i] = sc.nextInt();
+      
+      int max = 1;
+
+      int num;
+      int x = 1;
+      
+      for(int i = 0; i<9; i++){
+        num = sc.nextInt();
+        if(max < num){
+          x = i+1;
+          max = num;
+        }
       }
 
-      Arrays.sort(num);
-      System.out.print(num[0] + " " + num[n-1]);
+      System.out.print(max + "\n" +x);
       
       sc.close();
     }
