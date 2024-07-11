@@ -5,20 +5,14 @@ class Main {
     public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
       int n = sc.nextInt();
-      int[] arr = new int[n];
-
+      int[] num = new int[n];
       for (int i = 0; i < n; i++){
-        arr[i] = sc.nextInt();
+        num[i] = sc.nextInt();
       }
 
-      int findnum = sc.nextInt();
-      int result = 0;
+      Arrays.sort(num);
+      System.out.print(num[0] + " " + num[n-1]);
       
-      for (int i = 0; i < n; i++){
-        if(arr[i] == findnum) result++;
-      }
-
-      System.out.println(result);
       sc.close();
     }
 }
