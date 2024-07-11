@@ -4,14 +4,21 @@ import java.util.*;
 class Main {
     public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
-      int a, b;
+      int n = sc.nextInt();
+      int[] arr = new int[n];
 
-      while (sc.hasNextInt()){
-        a = sc.nextInt();
-        b = sc.nextInt();
-        
-        System.out.println(a+b);
+      for (int i = 0; i < n; i++){
+        arr[i] = sc.nextInt();
       }
+
+      int findnum = sc.nextInt();
+      int result = 0;
+      
+      for (int i = 0; i < n; i++){
+        if(arr[i] == findnum) result++;
+      }
+
+      System.out.println(result);
       sc.close();
     }
 }
