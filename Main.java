@@ -5,21 +5,22 @@ class Main {
     public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
       
-      int max = 1;
+      int n = sc.nextInt();
+      int m = sc.nextInt();
+      int[] arr = new int[n];
 
-      int num;
-      int x = 1;
-      
-      for(int i = 0; i<9; i++){
-        num = sc.nextInt();
-        if(max < num){
-          x = i+1;
-          max = num;
+      int a,b,c;
+      for(int i=0; i<m; i++){
+        a = sc.nextInt();
+        b = sc.nextInt();
+        c = sc.nextInt();
+
+        for(int j=a-1; j<=b-1; j++){
+          arr[j] = c;
         }
       }
-
-      System.out.print(max + "\n" +x);
-      
-      sc.close();
+      for(int i=0; i<n; i++){
+        System.out.print(arr[i]+" ");
+      }
     }
 }
