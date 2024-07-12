@@ -4,26 +4,24 @@ import java.util.*;
 class Main {
     public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
+
+      int[]arr = new int[42];
+      for(int i=0; i<42; i++){
+        arr[i] = 0;
+      }
+      int num;
+      for(int i = 0; i < 10; i++){
+        num = sc.nextInt();
+        arr[num%42] = 1;
+      }
+
+      int count = 0;
+
+      for(int i=0; i<42; i++){
+        if(arr[i]==1) count++;
+      }
+
+      System.out.println(count);
       
-      int n = sc.nextInt();
-      int m = sc.nextInt();
-
-      int[]arr = new int[n];
-      for(int i=0; i<n; i++){
-        arr[i] = i+1;
-      }
-      int a,b,s;
-      for(int i=0; i<m; i++){
-        a = sc.nextInt();
-        b = sc.nextInt();
-
-        s = arr[a-1];
-        arr[a-1] = arr[b-1];
-        arr[b-1] = s;
-      }
-
-      for(int i=0;i<n;i++){
-        System.out.print(arr[i] +" ");
-      }
     }
 }
