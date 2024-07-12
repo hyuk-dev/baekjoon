@@ -7,20 +7,23 @@ class Main {
       
       int n = sc.nextInt();
       int m = sc.nextInt();
-      int[] arr = new int[n];
 
-      int a,b,c;
+      int[]arr = new int[n];
+      for(int i=0; i<n; i++){
+        arr[i] = i+1;
+      }
+      int a,b,s;
       for(int i=0; i<m; i++){
         a = sc.nextInt();
         b = sc.nextInt();
-        c = sc.nextInt();
 
-        for(int j=a-1; j<=b-1; j++){
-          arr[j] = c;
-        }
+        s = arr[a-1];
+        arr[a-1] = arr[b-1];
+        arr[b-1] = s;
       }
-      for(int i=0; i<n; i++){
-        System.out.print(arr[i]+" ");
+
+      for(int i=0;i<n;i++){
+        System.out.print(arr[i] +" ");
       }
     }
 }
