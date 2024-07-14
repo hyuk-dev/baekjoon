@@ -14,7 +14,7 @@ class Main {
       for(int i=0; i<m; i++){
         a = sc.nextInt() -1;
         b = sc.nextInt() -1;
-        while(a<b){ // for문으로 하다가 계속 실패함.
+        while(a<b){ // for문으로 하다가 계속 실패함
           bin = arr[a];
           arr[a++] = arr[b];
           arr[b--] = bin;
