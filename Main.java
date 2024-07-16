@@ -7,9 +7,7 @@ class Main {
 
       String s = sc.next();
 
-      int i = sc.nextInt();
-
-      System.out.print(s.charAt(i-1));
+      System.out.print(s.length());
       
     }
 }
