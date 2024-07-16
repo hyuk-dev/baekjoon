@@ -5,9 +5,15 @@ class Main {
     public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
 
-      String s = sc.next();
+      int test = sc.nextInt();
+      String a;
 
-      System.out.print(s.length());
+      for(int i=0;i<test;i++){
+        a = sc.next();
+        System.out.println(a.charAt(0)+""+a.charAt(a.length()-1));
+      }
+
+      
       
     }
 }
