@@ -1,46 +1,30 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 class Main {
   public static void main(String[] args){
     Scanner sc = new Scanner(System.in);
-    String s = sc.next();
+    int N = sc.nextInt();
+    int[] arr = new int[100];
     int result = 0;
-    for(int i=0; i<s.length(); i++){
-      if(i<s.length()-2 && s.charAt(i) == 'd' && s.charAt(i+1) == 'z' && s.charAt(i+2) == '='){
-        result ++;
-        i+=2;
+    int check = 1;
+    for(int i=0; i<N; i++){
+      String s = sc.next();
+      check = 1;
+      arr[s.charAt(0)-97] = 1;
+      for(int j=1; j<s.length(); j++){
+        if(arr[s.charAt(j)-97] == 0){
+          arr[s.charAt(j)-97] = 1;
+        }
+        else if(arr[s.charAt(j)-97] == 1 && !(s.charAt(j) == s.charAt(j-1))){
+          check = 0;
+          break;
+        }
+        
       }
-      else if(i<s.length()-1 && s.charAt(i) =='c' && s.charAt(i+1) == '='){
-        result ++;
-        i ++;
-      }
-      else if(i<s.length()-1 && s.charAt(i) =='c' && s.charAt(i+1) == '-'){
-        result ++;
-        i ++;
-      }
-      else if(i<s.length()-1 && s.charAt(i) == 'd' && s.charAt(i+1) == '-'){
-        result++;
-        i++;
-      }
-      else if(i<s.length()-1 && s.charAt(i) == 'l' && s.charAt(i+1) == 'j'){
-        result++;
-        i++;
-      }
-      else if(i<s.length()-1 && s.charAt(i) == 'n' && s.charAt(i+1) == 'j'){
-        result++;
-        i++;
-      }
-      else if(i<s.length()-1 && s.charAt(i) == 's' && s.charAt(i+1) == '='){
-        result++;
-        i++;
-      }
-      else if(i<s.length()-1 && s.charAt(i) == 'z' && s.charAt(i+1) == '='){
-        result++;
-        i++;
-      }
-      else result++;
+      if(check == 1) result ++;
+      Arrays.fill(arr, 0);
     }
     System.out.print(result);
   }
-
 }
