@@ -4,27 +4,47 @@ import java.util.Arrays;
 class Main {
   public static void main(String[] args){
     Scanner sc = new Scanner(System.in);
-    int N = sc.nextInt();
-    int[] arr = new int[100];
-    int result = 0;
-    int check = 1;
-    for(int i=0; i<N; i++){
-      String s = sc.next();
-      check = 1;
-      arr[s.charAt(0)-97] = 1;
-      for(int j=1; j<s.length(); j++){
-        if(arr[s.charAt(j)-97] == 0){
-          arr[s.charAt(j)-97] = 1;
+    double result = 0; // 전공평점 = (학점*과목평점)의 합 / 학점의 합
+    double sum_subject = 0;
+    double sum_credit= 0;
+
+    for(int i=0; i<20; i++){
+        sc.next();
+        double credit = sc.nextDouble();
+        double subject = 0;
+        String s = sc.next();
+        if(s.equals("A+")){
+            subject = 4.5;
         }
-        else if(arr[s.charAt(j)-97] == 1 && !(s.charAt(j) == s.charAt(j-1))){
-          check = 0;
-          break;
+        if(s.equals("A0")){
+            subject = 4.0;
         }
-        
-      }
-      if(check == 1) result ++;
-      Arrays.fill(arr, 0);
+        if(s.equals("B+")){
+            subject = 3.5;
+        }
+        if(s.equals("B0")){
+            subject = 3.0;
+        }
+        if(s.equals("C+")){
+            subject = 2.5;
+        }
+        if(s.equals("C0")){
+            subject = 2.0;
+        }
+        if(s.equals("D+")){
+            subject = 1.5;
+        }
+        if(s.equals("D0")){
+            subject = 1.0;
+        }
+        if(s.equals("F")){
+            subject = 0.0;
+        }
+        if(!(s.equals("P"))){
+            sum_credit += credit;
+            sum_subject += credit*subject;
+        }
     }
-    System.out.print(result);
+    System.out.print(sum_subject/sum_credit);
   }
 }
