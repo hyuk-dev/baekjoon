@@ -4,35 +4,20 @@ import java.util.Arrays;
 class Main {
   public static void main(String[] args){
     Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt();
-    int m = sc.nextInt();
-    int[][] arr = new int[n][m];
-    int[][] arr2 = new int[n][m];
-    int[][] result = new int[n][m];
-
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            arr[i][j] = sc.nextInt();
+    int max = 0;
+    int max_i = 0;
+    int max_j = 0;
+    for(int i=0;i<9;i++){
+        for(int j=0;j<9;j++) {
+            int next = sc.nextInt();
+            if (max <= next) {
+                max = next;
+                max_i = i;
+                max_j = j;
+            }
         }
     }
-
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            arr2[i][j] = sc.nextInt();
-        }
-    }
-
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            result[i][j] = arr[i][j] + arr2[i][j];
-        }
-    }
-
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            System.out.print(result[i][j] + " ");
-        }
-        System.out.println();
-    }
+    System.out.println(max);
+    System.out.print((max_i+1) + " " + (max_j+1));
   }
 }
