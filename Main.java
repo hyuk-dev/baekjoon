@@ -1,30 +1,22 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
-class Main {
-  public static void main(String[] args){
-    Scanner sc = new Scanner(System.in);
-    int N = sc.nextInt();
-    int[] arr = new int[100];
-    int result = 0;
-    int check = 1;
-    for(int i=0; i<N; i++){
-      String s = sc.next();
-      check = 1;
-      arr[s.charAt(0)-97] = 1;
-      for(int j=1; j<s.length(); j++){
-        if(arr[s.charAt(j)-97] == 0){
-          arr[s.charAt(j)-97] = 1;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int b = sc.nextInt();
+        int i=0;
+        int[] arr = new int[1000];
+        while(n>0){
+            arr[i] = n%b;
+            n = (int) (n/b);
+            i++;
         }
-        else if(arr[s.charAt(j)-97] == 1 && !(s.charAt(j) == s.charAt(j-1))){
-          check = 0;
-          break;
+        for(int j=i-1;j>=0;j--){
+            if(arr[j]>=10){
+                System.out.print((char)(arr[j]+'A'-10));
+            }
+            else System.out.print(arr[j]);
         }
-        
-      }
-      if(check == 1) result ++;
-      Arrays.fill(arr, 0);
     }
-    System.out.print(result);
-  }
 }
