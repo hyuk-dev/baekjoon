@@ -4,32 +4,10 @@ class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int num=0;
-        for(int i=0; i<n; i++){
-            num = sc.nextInt();
-            if(num>=25){
-                System.out.print((int)(num/25) + " ");
-                num = num % 25;
-            }
-            else{
-                System.out.print("0 ");
-            }
-            if(num>=10) {
-                System.out.print((int) (num / 10) + " ");
-                num = num % 10;
-            }
-            else{
-                System.out.print("0 ");
-            }
-            if(num>=5){
-                System.out.print((int)(num/5) + " ");
-                num = num % 5;
-            }
-            else{
-                System.out.print("0 ");
-            }
-            System.out.print(num);
-            System.out.println();
+        int result = 0;
+        for(int i=0; i<n+1; i++){ // 2 3 5 9
+            result = (int)Math.pow(1+(int)Math.pow(2,i),2); // 2*2 3*3 5*5 9*9
         }
+        System.out.println(result);
     }
 }
