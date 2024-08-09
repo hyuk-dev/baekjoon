@@ -3,15 +3,29 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        int A = sc.nextInt();
-        int B = sc.nextInt();
-        int V = sc.nextInt();
-        int D = ((V-B)/(A-B));
-        if((V-B)%(A-B) != 0){
-            D++;
+        while(true){
+            int A = sc.nextInt();
+            int B = sc.nextInt();
+            if(A == 0 && B == 0) break;
+            if (A>B){
+                if(A%B == 0){
+                    System.out.println("multiple");
+                }
+                else{
+                    System.out.println("neither");
+                }
+            }
+            else{
+                if(B%A == 0){
+                    System.out.println("factor");
+                }
+                else{
+                    System.out.println("neither");
+                }
+            }
         }
 
-        System.out.println(D);
+
 
 
     }
