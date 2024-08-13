@@ -3,21 +3,37 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
+        int M = sc.nextInt();
         int N = sc.nextInt();
-        int result = 0;
-        for(int i=0; i<N; i++){
-
-            int check = 0;
-            int num = sc.nextInt();
-            for(int j=1; j<=num; j++){
-                if(num % j ==0) check ++;
+        int check = 0;
+        int sum = 0;
+        int min = N;
+        for(int i=M;i<=N;i++){
+            check = 0;
+            if(i==1){
+                continue;
             }
-
-            if(check == 2) result ++;
-
+            if(i==2){
+                sum += 2;
+                min = 2;
+                continue;
+            }
+            for(int j=2;j<i;j++){
+                if(i%j == 0) {
+                    check = 1;
+                }
+            }
+            if(check == 0){
+                sum += i;
+                if(min > i) min = i;
+            }
         }
-        System.out.print(result);
+        if(sum!=0){
+            System.out.println(sum);
+            System.out.println(min);
+        }
 
+        else System.out.println("-1");
 
     }
 }
