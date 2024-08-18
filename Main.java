@@ -3,19 +3,38 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        int x = sc.nextInt();
-        int y = sc.nextInt();
-        int w = sc.nextInt();
-        int h = sc.nextInt();
+        int x1 = sc.nextInt();
+        int y1 = sc.nextInt();
 
-        int min = 0;
+        int x2 = sc.nextInt();
+        int y2 = sc.nextInt();
 
-        min = w-x;
-        if(h-y < min) min = h-y;
-        if(x < min) min = x;
-        if(y < min) min = y;
+        int x3 = sc.nextInt();
+        int y3 = sc.nextInt();
 
-        System.out.println(min);
+        int x4, y4;
+
+        if(x1 == x2){
+            x4 = x3;
+        }
+        else if(x1 == x3){
+            x4 = x2;
+        }
+        else{
+            x4 = x1;
+        }
+
+        if(y1 == y2){
+            y4 = y3;
+        }
+        else if(y1 == y3){
+            y4 = y2;
+        }
+        else{
+            y4 = y1;
+        }
+
+        System.out.println(x4 + " " + y4);
 
 
     }
