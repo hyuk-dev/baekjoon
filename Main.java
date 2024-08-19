@@ -3,32 +3,25 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        int a=1;
-        int b=1;
-        int c=1;
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+        int c=sc.nextInt();
+
         while(true){
-            a=sc.nextInt();
-            b=sc.nextInt();
-            c=sc.nextInt();
+            if(a < b+c && b < a+c && c < a+b) break;
 
-            if(a==0 && b==0 && c==0) break;
-            if(a < b+c && b < a+c && c < a+b){
-                if(a == b && b == c) {
-                    System.out.println("Equilateral");
-                }
-                else if(a == b || b == c || a == c){
-                    System.out.println("Isosceles");
-                }
-                else if(a<b+c && b<a+c && c<a+b){
-                    System.out.println("Scalene");
-                }
+            if(a >= b+c){
+                a--;
             }
-
-            else{
-                System.out.println("Invalid");
+            else if(b >= a+c){
+                b--;
             }
-
+            else if(c >= a+b){
+                c--;
+            }
         }
+
+        System.out.println(a+b+c);
 
     }
 }
