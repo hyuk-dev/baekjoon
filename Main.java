@@ -5,23 +5,36 @@ class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        int a1 = sc.nextInt();
-        int a0 = sc.nextInt();
-        int c = sc.nextInt();
-        int n0 = sc.nextInt();
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        int[] arr = new int[N];
+        for(int i=0; i<N; i++){
+            arr[i] = sc.nextInt();
+        }
 
-        int check = 0;
+        int a=0;
+        int b=0;
+        int c=0;
+        int most = 0; // 합이 M에 가장 가까운 3장 합
 
-        for(int i = n0; i<=100; i++){
-            if (a1 * i + a0 > c * i) {
-                check = 1;
-                break;
+        for(int i=0; i<N; i++){
+            a = arr[i];
+            for(int j=0; j<N; j++){
+                if(arr[j] == a) continue;
+                b = arr[j];
+                for(int k=0; k<N; k++){
+                    if(arr[k] == arr[j] || arr[k] == arr[i]) continue;
+                    c = arr[k];
+
+                    if(a+b+c <= M && most < a+b+c){
+                        most = a+b+c;
+
+                    }
+                }
             }
         }
 
-        if(check == 1) System.out.println("0");
-        else System.out.println("1");
-
+        System.out.println(most);
 
     }
 }
