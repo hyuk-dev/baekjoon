@@ -1,33 +1,40 @@
 import java.util.Scanner;
-import java.lang.Math;
-
 class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        int N = sc.nextInt();
-        int result = 0; // 최소 생성자
-        int sum = 0;
-        int a = 0;
-        int check = 0;
-        for(int i=1; i<N; i++){
-            a=i;
-            while(true){
-                if(a%10 == 0) check = 1;
-                sum += a%10;
-                a = a/10;
-                if(a<9) break;
-            }
-            sum += a;
-            if(sum + i == N && check == 0){
-                result = i;
-            }
-            sum = 0;
-            check = 0;
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int d = sc.nextInt();
+        int e = sc.nextInt();
+        int f = sc.nextInt();
+
+        int x,y;
+        y = (int) ((a * f - d * c) / (a * e - d * b));
+        if (a != 0) {
+            x = (int) ((c - b * y) / a);
+        }
+        else{
+            x = (int) ((f - e * y) / d);
         }
 
-        System.out.println(result);
+        System.out.println(x + " " + y);
 
     }
 }
 
+/*
+ax = c - by
+x = (c - by) / a
+
+dx = f - ey
+x = (f - ey) / d
+
+(c - by) / a = (f - ey) / d
+d(c - by) = a(f - ey)
+dc - dby = af - aey
+aey - dby = af - dc
+(ae - db) y = af - dc
+y = (af - dc) / (ae - db)
+ */
