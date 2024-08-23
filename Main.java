@@ -2,39 +2,105 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        char[][] arr = new char[N][M];
+        char[][] chess = new char[N][M];
 
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int c = sc.nextInt();
-        int d = sc.nextInt();
-        int e = sc.nextInt();
-        int f = sc.nextInt();
+        for(int i = 0; i < N; i++){
+            String s = sc.next();
+            for(int j = 0; j < M; j++){
+                arr[i][j] = s.charAt(j);
 
-        int x,y;
-        y = (int) ((a * f - d * c) / (a * e - d * b));
-        if (a != 0) {
-            x = (int) ((c - b * y) / a);
-        }
-        else{
-            x = (int) ((f - e * y) / d);
+            }
         }
 
-        System.out.println(x + " " + y);
+        int result = 0;
+        int min_result = 65;
+        for(int i = 0; i <= N-8; i++){
+            for(int j = 0; j <= M-8; j++){
 
+                for(int k = i; k < i + 8; k++){
+                    for(int t = j; t < j + 8; t++){
+                        chess[k][t] = arr[k][t];
+
+                    }
+
+                }
+                for(int k = i; k < i + 8; k++){
+                    for(int t = j; t < j + 8; t++){
+                        if(t > j){
+
+                            if(chess[k][t] == chess[k][t-1]){
+
+                                result ++;
+                                if(chess[k][t] == 'W') chess[k][t] = 'B';
+                                else chess[k][t] = 'W';
+                            }
+                        }
+                        if(k > i){
+                            if(chess[k][t] == chess[k-1][t]){
+
+                                result ++;
+                                if(chess[k][t] == 'W') chess[k][t] = 'B';
+                                else chess[k][t] ='W';
+                            }
+                        }
+                    }
+
+                }
+
+
+
+                if(min_result > result){
+                    min_result = result;
+                }
+
+                result = 1;
+
+                for(int k = i; k < i + 8; k++){
+                    for(int t = j; t < j + 8; t++){
+                        chess[k][t] = arr[k][t];
+
+                    }
+
+                }
+
+                if(chess[i][j] == 'W') chess[i][j] = 'B';
+                else chess[i][j] = 'W';
+
+                for(int k = i; k < i + 8; k++){
+                    for(int t = j; t < j + 8; t++){
+                        if(t > j){
+
+                            if(chess[k][t] == chess[k][t-1]){
+
+                                result ++;
+                                if(chess[k][t] == 'W') chess[k][t] = 'B';
+                                else chess[k][t] = 'W';
+                            }
+                        }
+                        if(k > i){
+                            if(chess[k][t] == chess[k-1][t]){
+
+                                result ++;
+                                if(chess[k][t] == 'W') chess[k][t] = 'B';
+                                else chess[k][t] ='W';
+                            }
+                        }
+                    }
+
+                }
+
+
+                if(min_result > result){
+                    min_result = result;
+                }
+
+                result = 0;
+
+            }
+        }
+        System.out.println(min_result);
     }
 }
-
-/*
-ax = c - by
-x = (c - by) / a
-
-dx = f - ey
-x = (f - ey) / d
-
-(c - by) / a = (f - ey) / d
-d(c - by) = a(f - ey)
-dc - dby = af - aey
-aey - dby = af - dc
-(ae - db) y = af - dc
-y = (af - dc) / (ae - db)
- */
