@@ -4,44 +4,31 @@ class Main {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
 
-        int a = 665;
+        int min_count = 5000;
         int check = 0;
-        int check_666 = 0;
-        int c = 0;
-        while(true){
-            a = a + 1;
-            int n = a;
-            while(true){
-                if(n%10 == 6){
-                    check ++;
+
+        for(int i=0; i<N; i++){
+            for(int j=0; j<N; j++){
+                if(j*3 + i*5 == N){
+                    check = 1;
+                    if(min_count > j+i) min_count = j+i;
                 }
-                else{
-                    check = 0;
-                }
-
-                n = (int) (n / 10);
-
-                if(check == 3){
-                    check_666 = 1;
-                    break;
-                }
-
-                if (n < 1) break;
-
-
-
-
-
             }
-            check = 0;
-            if(check_666 == 1){
-                c++;
-                check_666 = 0;
-            }
-            if(c == N) break;
         }
 
-        System.out.println(a);
-
+        if(check == 1) System.out.println(min_count);
+        else System.out.println("-1");
     }
 }
+
+/*
+18
+13
+8
+3
+0
+
+11
+6 3의 배수 될때까지 5로 빼준다.
+3 3의 배수가 되고나서 3으로 빼준다.
+ */
