@@ -3,17 +3,22 @@ import java.util.Arrays;
 class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int[] arr = new int[N];
-        for(int i=0; i<N; i++){
+        int[] arr = new int[5];
+
+        for(int i=0; i<5; i++){
             arr[i] = sc.nextInt();
         }
 
         Arrays.sort(arr);
 
-        for(int i=0; i<N; i++){
-            System.out.println(arr[i]);
+        int sum = 0;
+
+        for(int i=0; i<5; i++){
+            sum += arr[i];
         }
+
+        System.out.println((int)sum/5);
+        System.out.println((arr[2]));
     }
 }
 
