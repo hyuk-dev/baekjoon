@@ -3,22 +3,19 @@ import java.util.Arrays;
 class Main {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        int[] arr = new int[5];
+        int N = sc.nextInt();
+        int k = sc.nextInt();
 
-        for(int i=0; i<5; i++){
+        int[] arr = new int[N];
+
+        for(int i=0; i<N; i++){
             arr[i] = sc.nextInt();
         }
 
         Arrays.sort(arr);
 
-        int sum = 0;
-
-        for(int i=0; i<5; i++){
-            sum += arr[i];
-        }
-
-        System.out.println((int)sum/5);
-        System.out.println((arr[2]));
+        if(N>1) System.out.println(arr[N-k]);
+        else System.out.println(arr[0]);
     }
 }
 
