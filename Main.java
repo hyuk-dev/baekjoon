@@ -1,21 +1,26 @@
 import java.util.Scanner;
 import java.util.Arrays;
+import java.io.*;
 class Main {
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int k = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int N = Integer.parseInt(br.readLine());
 
         int[] arr = new int[N];
 
         for(int i=0; i<N; i++){
-            arr[i] = sc.nextInt();
+            arr[i] = Integer.parseInt(br.readLine());
         }
 
         Arrays.sort(arr);
 
-        if(N>1) System.out.println(arr[N-k]);
-        else System.out.println(arr[0]);
+        for(int i=0; i<N; i++){
+            bw.write(arr[i] + "\n");
+        }
+
+        bw.close();
     }
 }
 
